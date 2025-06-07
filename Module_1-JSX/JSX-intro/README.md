@@ -67,3 +67,91 @@
      const panda = <img src='images/panda.jpg' alt='panda' width='500px' height='500px'>;
  
   ```
+
+## Nested JSX
+- Here’s an example of a JSX <h1> element, nested inside of a JSX <a> element:
+- ``` jsx
+ 
+    <a href="https://www.example.com"><h1>Click me!</h1></a>
+
+  ```
+- To make this more readable, you can use HTML-style line breaks and indentation:
+  ``` jsx
+
+     <a href="https://www.example.com">
+       <h1>
+          Click me!
+       </h1>
+     </a>
+
+  ```
+- If a JSX expression takes up more than one line, then you must wrap the multi-line JSX expression in parentheses:
+
+  ``` jsx
+    
+        (
+      <a href="https://www.example.com">
+        <h1>
+          Click me!
+        </h1>
+      </a>
+    )
+
+  ```
+
+- Nested JSX expressions can be saved as variables, passed to functions, etc., just like non-nested JSX expressions can! Here’s an example of a nested JSX expression being saved as a variable:
+
+  ``` jsx
+    
+      const theExample = (
+      <a href="https://www.example.com">
+        <h1>
+          Click me!
+        </h1>
+      </a>
+    )
+
+  ```
+
+## JSX Outer Elements
+- There’s a rule that we haven’t mentioned: a JSX expression must have exactly one outermost element.
+- In other words, this code will work:
+   
+   ``` jsx
+    
+      const theExample = (
+      <a href="https://www.example.com">
+        <h1>
+          Click me!
+        </h1>
+      </a>
+    )
+
+   ```
+- But this code will not work:
+
+    ``` jsx
+    
+        const paragraphs = (
+        <p>I am a paragraph.</p> 
+        <p>I, too, am a paragraph.</p>
+    );
+
+    ```
+-**The first opening tag and the final closing tag of a JSX expression must belong to the same JSX element!**
+- It’s easy to forget about this rule and end up with errors that are tough to diagnose.
+- If you notice that a JSX expression has multiple outer elements, the solution is usually simple: wrap the JSX expression in a <div> element.
+
+## JSX Rendering
+- You’ve learned how to write JSX elements! Now it’s time to learn how to render them.
+- **To render a JSX expression means to make it appear on screen.**
+- The following code will render a JSX expression:
+
+      ``` jsx
+    
+     const container = document.getElementById('app');
+     const root = createRoot(container);
+     root.render(<h1>Hello world</h1>);
+
+      ```
+
